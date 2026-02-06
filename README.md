@@ -13,6 +13,7 @@ The **Robot CLI** is a powerful command-line agent that translates your natural 
     ```bash
     build.bat
     ```
+    Output: `dist/robot_global.exe`
 
 ## Usage
 
@@ -30,10 +31,9 @@ python main.py do "Create a folder named 'Invoices' and move all PDF files from 
 
 ## Setup
 
-Before first use, you need to provide your OpenRouter API key.
-
 1.  Run the setup command:
     ```powershell
     python main.py setup
     ```
-2.  Paste your API key when prompted. It will be saved locally to a `.env` file.
+2.  Paste your API key when prompted. It will be saved globally to `%USERPROFILE%/.robot_env`.
+

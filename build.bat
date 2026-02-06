@@ -8,7 +8,7 @@ if %errorlevel% neq 0 (
 )
 
 echo Building executable...
-python -m PyInstaller --onefile --name robot main.py
+python -m PyInstaller --onefile --name robot_global main.py
 if %errorlevel% neq 0 (
     echo Build failed.
     pause

@@ -13,16 +13,18 @@ def setup(api_key: str = typer.Option(..., prompt=True, hide_input=True)):
     """
     Setup the robot with your OpenRouter API key.
     """
-    with open(".env", "w") as f:
+    env_path = os.path.join(os.path.expanduser("~"), ".robot_env")
+    with open(env_path, "w") as f:
         f.write(f"OPENROUTER_API_KEY={api_key}\n")
-    console.print("[green]API key saved to .env[/green]")
+    console.print(f"[green]API key saved to {env_path}[/green]")
 
 @app.command()
 def do(instruction: str):
     """
     Execute a natural language instruction.
     """
-    load_dotenv()
+    env_path = os.path.join(os.path.expanduser("~"), ".robot_env")
+    load_dotenv(env_path)
     api_key = os.getenv("OPENROUTER_API_KEY")
     if not api_key:
         console.print("[red]API key not found. Run 'robot setup' first.[/red]")
